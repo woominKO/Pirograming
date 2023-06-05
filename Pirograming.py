@@ -58,9 +58,9 @@ class Game:
         # Write code here..
 
         if round_num == 1:
-            self.players.sort(key=lambda x: x.name)
+            self.players = sorted(self.players, key=lambda x: x.name)
         elif round_num > 1:
-            self.players.sort(key=lambda x: x.score)
+            self.players = sorted(self.players, key=lambda x: x.score)
 
         ##### END OF TODO 2 (문제와 본 라인 사이에 코드를 작성하세요.) #####
 
@@ -96,21 +96,6 @@ class Game:
             if self.deck[-(i+1)] == MaxCard:
                 MaxPlayer = player
                 MaxPlayer.score += MaxCard - MinCard
-
-        # for i in range(4):
-        #     print(f"{self.players[i]}(현재점수:{self.players[i].score})가 뽑은 카드 ")
-        #     print(f"뽑은카드 {self.deck[-(i+1)]} ")
-        #     players_card.append({"number":i, "card":self.deck[-(i+1)]})
-        # ##### END OF TODO 3-(2) (문제와 본 라인 사이에 코드를 작성하세요.) #####
-
-        # # TODO 3-(3) : 가장 큰 숫자를 뽑은 플레이어가 점수를 얻는 코드를 작성해주세요.
-        # # 점수 계산 방식 : 본인의 카드에 적힌 숫자 - 플레이어들이 뽑은 카드 중 가장 숫자가 작은 카드에 적힌 숫자
-        # # Write code here..
-
-        # MaxDic = max(players_card, key=lambda v: v['card'])
-        # MaxPlayer= self.players[MaxDic['number']]
-        # MaxPlayer.score= MaxDic['card']- min(players_card)
-
         # ##### END OF TODO 3-(3) (문제와 본 라인 사이에 코드를 작성하세요.) #####
 
     def play_game(self):
