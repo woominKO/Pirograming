@@ -147,6 +147,8 @@ class Game:
         print("     게임 순위 - 승리 횟수")
         print("=============================")
         # Write code here..
+        self.players = sorted(
+            self.players, key=lambda x: x.round_wins, reverse=True)
         print(f"1.{self.players[0]}:{self.players[0].round_wins} ")
         print(f"2.{self.players[1]}:{self.players[1].round_wins} ")
         print(f"3.{self.players[2]}:{self.players[2].round_wins} ")
