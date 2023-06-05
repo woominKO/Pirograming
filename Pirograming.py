@@ -42,6 +42,7 @@ class Game:
         for i in range(30):
             randomCard = random.randrange(1, 13)
             self.deck.append(randomCard)
+        print()
 
         # TODO 1-(2) : 랜덤으로 1부터 13 사이의 카드 30장을 deck에 저장해주세요
         # random에 대한 함수를 공부해봅시다.
@@ -87,16 +88,20 @@ class Game:
             print(f"{self.players[i]}(현재점수:{self.players[i].score})가 뽑은 카드 ")
             print(f"뽑은카드 {self.deck[-(i+1)]} ")
             players_card.append(self.deck[-(i+1)])
+        print()
 
         MaxCard = max(players_card)
         MinCard = min(players_card)
         MaxPlayer = None
-
+        MaxScore = None
         for i, player in enumerate(self.players):
             if self.deck[-(i+1)] == MaxCard:
                 MaxPlayer = player
                 MaxPlayer.score += MaxCard - MinCard
+                MaxScore = MaxCard - MinCard
                 MaxPlayer.round_wins += 1
+
+        print(f"{MaxPlayer}님이 {MaxScore}점을 얻으셨습니다 \^_^/")
         # ##### END OF TODO 3-(3) (문제와 본 라인 사이에 코드를 작성하세요.) #####
 
     def play_game(self):
@@ -131,8 +136,14 @@ class Game:
         print("=============================")
 
         # Write code here..
+        for i in range(4):
+            if self.players[i] == self.my_player:
+                self.players[i].name = "*"+self.players[i].name+"*"
+            else:
+                continue
         self.players = sorted(
             self.players, key=lambda x: x.score, reverse=True)
+
         print(f"1.{self.players[0]}:{self.players[0].score} ")
         print(f"2.{self.players[1]}:{self.players[1].score} ")
         print(f"3.{self.players[2]}:{self.players[2].score} ")
