@@ -131,6 +131,8 @@ class Game:
         print("=============================")
 
         # Write code here..
+        self.players = sorted(
+            self.players, key=lambda x: x.score, reverse=True)
         print(f"1.{self.players[0]}:{self.players[0].score} ")
         print(f"2.{self.players[1]}:{self.players[1].score} ")
         print(f"3.{self.players[2]}:{self.players[2].score} ")
