@@ -96,6 +96,7 @@ class Game:
             if self.deck[-(i+1)] == MaxCard:
                 MaxPlayer = player
                 MaxPlayer.score += MaxCard - MinCard
+                MaxPlayer.round_wins += 1
         # ##### END OF TODO 3-(3) (문제와 본 라인 사이에 코드를 작성하세요.) #####
 
     def play_game(self):
